@@ -1,65 +1,94 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const STEPS = [
+  { num: "1", title: "Upload", desc: "Record your swing and upload the video" },
+  { num: "2", title: "Mark Frames", desc: "Select key positions on the timeline" },
+  { num: "3", title: "Get Analysis", desc: "Receive detailed feedback and drills" },
+];
+
+const FEATURES = [
+  { title: "8-Phase Analysis", description: "Every swing position scored from 1-100 with detailed observations.", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+  { title: "Cause-Effect Chains", description: "Understand how faults in one phase create problems downstream.", icon: "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" },
+  { title: "Practice Drills", description: "Specific drills with equipment, reps, and feel cues for each fault.", icon: "M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" },
+  { title: "Progress Tracking", description: "See how your scores trend over time across multiple sessions.", icon: "M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div>
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-golf-900 via-golf-800 to-golf-700 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:py-28 text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            AI-Powered Golf Swing Analysis
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg sm:text-xl text-golf-100 max-w-2xl mx-auto mb-8">
+            Upload your swing video and receive detailed biomechanical feedback,
+            phase-by-phase scoring, and personalized practice drills in seconds.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/analyze"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-semibold text-golf-800 shadow-lg hover:bg-golf-50 transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Analyze Your Swing
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Link>
         </div>
-      </main>
+      </section>
+
+      {/* How it works */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">How It Works</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {STEPS.map((step) => (
+              <div key={step.num} className="text-center">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-golf-100 text-golf-800 text-xl font-bold">
+                  {step.num}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">{step.title}</h3>
+                <p className="text-sm text-gray-500">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">Features</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {FEATURES.map((f) => (
+              <div key={f.title} className="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-sm transition-shadow">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-golf-100 text-golf-700">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-base font-semibold text-gray-900 mb-1">{f.title}</h3>
+                <p className="text-sm text-gray-500">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-golf-50">
+        <div className="mx-auto max-w-6xl px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Ready to improve your swing?</h2>
+          <p className="text-gray-600 mb-6">Start your first analysis — no account needed.</p>
+          <Link
+            href="/analyze"
+            className="inline-flex items-center gap-2 rounded-full bg-golf-700 px-8 py-3 text-base font-semibold text-white hover:bg-golf-800 transition-colors"
+          >
+            Get Started
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
